@@ -60,7 +60,7 @@ int main()
 		oddNum += 2; std::cout << "\nYour numbers " << oddNum;
 		}
 
-		while (oddNum == 50);
+		while (oddNum <= 50);
 						
 		break;
 	}
