@@ -63,7 +63,29 @@ int main()
 		while (oddNum <= 50);
 						
 		break;
-	}
-		
+	
+
+		//Home Work 4, Task 4
+		case 4:
+		{
+			int inpYer;
+
+			std::cout << "Enter a year for checking\n";
+			std::cin >> inpYer;
+
+			if (inpYer % 4 == 0)
+				std::cout << "+";
+
+			else if (inpYer % 100 == 0)
+				std::cout << "-";
+
+			else if (inpYer % 400 == 0)
+				std::cout << "+";
+			else
+				std::cout << "-";
+			break;
+		}
+	}	
+
 return 0;
 }
