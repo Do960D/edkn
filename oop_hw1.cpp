@@ -81,25 +81,36 @@ public:
 			
 		size = 0;
 
-		std::cout << "Stak is reseted!\n";
+		std::cout << "Stack is reseted!\n";
 
 	}
 
 	bool push(int x)
 	{
 		bool isFull = false;
+
 		if (size == 0)
+		{
 			size = 10;
+
+			for (size_t i = 0; i < size; ++i)
+				privateArray[i] = 0;
+		}
 
 		for (size_t i = 0; i < size; ++i)
 		{
+			if (privateArray[i] != 0)
+				++i;
+
 			if (privateArray[i] == 0)
+			{
 				privateArray[i] = x;
+				break;
+			}
 
 			
 			if (i == size && privateArray[i] != 0)
 				isFull = true;
-
 		}
 
 		return isFull;
@@ -110,6 +121,13 @@ public:
 		size_t i;
 		size_t emptyness = 0;
 
+		
+
+		std::cout << "POP in progress: \n";
+
+		for (i = 0; i < size; ++i)
+			std::cout << privateArray[i] << "\n";
+
 		for (size_t i = 0; i < size; ++i)
 		{
 			if (privateArray[i] == 0)
@@ -117,26 +135,21 @@ public:
 		}
 
 		if (emptyness == size)
-			std::cout << "Stack is empty!\n";
-
-		std::cout << "POP in progress: \n";
-
-		for (i = 0; i < size; ++i)
-			std::cout << privateArray[i] << "\n";
+			std::cout << "Stack is empty!";
 
 		std::cout << std::endl;
 	}
 
 	void print() 
 	{
-		std::cout << "Print in progress: \n";
+		std::cout << "Print in progress: ";
 
 		for (size_t i = 0; i < size; ++i)
 		{
 			if (privateArray[i] == 0)
 				break;
 
-			std::cout <<  privateArray[i] << "\n";
+			std::cout << "\n" << privateArray[i] << "\n";
 		}
 
 		std::cout << "End of array!\n" << std::endl;
