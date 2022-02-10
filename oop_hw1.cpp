@@ -121,17 +121,22 @@ public:
 		size_t i;
 		size_t emptyness = 0;
 
-		
+		std::cout << "POP is running! \n";
 
-		std::cout << "POP in progress: \n";
-
-		for (i = 0; i < size; ++i)
-			std::cout << privateArray[i] << "\n";
-
-		for (size_t i = 0; i < size; ++i)
+		for (size_t i = size-1; i > 0; --i)
 		{
-			if (privateArray[i] == 0)
+			if (privateArray[i] != 0)
+			{
+				
+				privateArray[i] = 0;
+				
+			
+				break;
+			}
+
+			else 
 				++emptyness;
+			
 		}
 
 		if (emptyness == size)
@@ -142,14 +147,14 @@ public:
 
 	void print() 
 	{
-		std::cout << "Print in progress: ";
+		std::cout << "\nPrint in progress: \n";
 
 		for (size_t i = 0; i < size; ++i)
 		{
 			if (privateArray[i] == 0)
 				break;
 
-			std::cout << "\n" << privateArray[i] << "\n";
+			std::cout << privateArray[i] << "\n";
 		}
 
 		std::cout << "End of array!\n" << std::endl;
@@ -160,7 +165,7 @@ public:
 int main()
 {
 
-	// TASK 1
+	//// TASK 1
 
 	Power orignOne;
 
@@ -176,7 +181,6 @@ int main()
 	//TASK 3
 
 	Stack stack;
-
 	stack.reset();
 	stack.print();
 
@@ -191,6 +195,7 @@ int main()
 	stack.pop();
 	stack.pop();
 	stack.print();
+
 	
 }
 
