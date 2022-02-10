@@ -1,70 +1,62 @@
 ﻿#include <iostream>
 #include <cstdint>
+#include <cmath>
 
 //TASK 1
 
 class Power {
 
-private:
-
-	int m_var1;
-	int m_var2;
-
 public:
 
-	void setVar(int var1, int var2) { m_var1 = var1; m_var2 = var2; }
-
-	int calculate(int m_var1 = 2, int m_var2 = 3)
+	void setVar(float var1, float var2)
 	{
-		int num = m_var1;
-		int pow = m_var2;
-
-		int result = 1;
-
-		for (int i = 0; i < pow; ++i)
-		{
-			result *= num;
-		}
-		return result;
+		m_var1 = var1;
+		m_var2 = var2;
 	}
-};
 
+	void calculate(float num = 2, float pwr = 3)
+	{
+		std::cout << pow(num, pwr);
+	}
+
+
+private:
+
+	float m_var1, m_var2;
+
+};
 
 //TASK 2
 
 class RGBa {
 
-private:
-
-	uint8_t m_red, m_green, m_blue, m_alpha;
-
-
 public:
 
-	RGBa() : m_red (0), m_green (0), m_blue (0), m_alpha (255)
+	RGBa ( ) : m_red (0), m_green (0), m_blue (0), m_alpha (255)
 	{
-		m_red;
-		m_green;
-		m_blue;
-		m_alpha;
+		
 	}
 
 	void print()
 	{
-		std::cout << m_red << m_green << m_blue << m_alpha;
+		uint16_t red = static_cast <uint16_t> (m_red);
+		uint16_t green = static_cast <uint16_t> (m_green);
+		uint16_t blue = static_cast <uint16_t> (m_blue);
+		uint16_t alpha = static_cast <uint16_t> (m_alpha);
+
+		std::cout << "\n\n" << red << ", " << green << ", " << blue << ", " << alpha << "\n";
 	}
-};
-
-
-//TASK 3
-
-class Stack {
 
 private:
 
-	size_t size = 10;
-	
-	int* privateArray = new int[size];
+	uint8_t m_red, m_green, m_blue, m_alpha;
+
+};
+
+
+//TASK 3  
+
+class Stack {
 
 public:
 
@@ -74,8 +66,6 @@ public:
 			privateArray[i] = 0;		
 			
 		size = 0;
-
-		std::cout << "Stack is reseted!\n";
 	}
 
 	bool push(int x)
@@ -100,6 +90,7 @@ public:
 				privateArray[i] = x;
 				break;
 			}
+
 			
 			if (i == size && privateArray[i] != 0)
 				isFull = true;
@@ -113,9 +104,7 @@ public:
 		size_t i;
 		size_t emptyness = 0;
 
-		std::cout << "POP is running! \n";
-
-		for (size_t i = size-1; i > 0; --i)
+		for (size_t i = size-1; i >= 0; --i)
 		{
 			if (privateArray[i] != 0)
 			{
@@ -129,35 +118,38 @@ public:
 
 		if (emptyness == size)
 			std::cout << "Stack is empty!";
-
-		std::cout << std::endl;
 	}
 
 	void print() 
 	{
-		std::cout << "\nPrint in progress: \n";
-
+		std::cout << "\nprint array: ";
 		for (size_t i = 0; i < size; ++i)
 		{
 			if (privateArray[i] == 0)
 				break;
 
-			std::cout << privateArray[i] << "\n";
+			std::cout  << privateArray[i] << "";
 		}
-
-		std::cout << "End of array!\n" << std::endl;
 	}
+
+private:
+
+	size_t size = 10;
+
+	int* privateArray = new int[size];
+
 };
 
 
 int main()
 {
-	//// TASK 1
+
+	 //TASK 1
 
 	Power orignOne;
 
 	orignOne.setVar(5, 10);
-	std::cout << orignOne.calculate() << std::endl;
+	orignOne.calculate();
 
 	//TASK 2
 
@@ -168,7 +160,6 @@ int main()
 	//TASK 3
 
 	Stack stack;
-
 	stack.reset();
 	stack.print();
 
@@ -183,5 +174,9 @@ int main()
 	stack.pop();
 	stack.pop();
 	stack.print();
+
+	
 }
+
+
 
