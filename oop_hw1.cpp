@@ -10,7 +10,6 @@ private:
 	int m_var1;
 	int m_var2;
 
-
 public:
 
 	void setVar(int var1, int var2) { m_var1 = var1; m_var2 = var2; }
@@ -19,6 +18,7 @@ public:
 	{
 		int num = m_var1;
 		int pow = m_var2;
+
 		int result = 1;
 
 		for (int i = 0; i < pow; ++i)
@@ -36,10 +36,7 @@ class RGBa {
 
 private:
 
-	uint8_t m_red;
-	uint8_t m_green;
-	uint8_t m_blue;
-	uint8_t m_alpha;
+	uint8_t m_red, m_green, m_blue, m_alpha;
 
 
 public:
@@ -52,12 +49,10 @@ public:
 		m_alpha;
 	}
 
-	void print( uint8_t m_red = 0, uint8_t m_green = 0, uint8_t m_blue = 0, uint8_t m_alpha = 255)
+	void print()
 	{
 		std::cout << m_red << m_green << m_blue << m_alpha;
 	}
-
-
 };
 
 
@@ -71,7 +66,6 @@ private:
 	
 	int* privateArray = new int[size];
 
-
 public:
 
 	void reset() 
@@ -82,7 +76,6 @@ public:
 		size = 0;
 
 		std::cout << "Stack is reseted!\n";
-
 	}
 
 	bool push(int x)
@@ -107,7 +100,6 @@ public:
 				privateArray[i] = x;
 				break;
 			}
-
 			
 			if (i == size && privateArray[i] != 0)
 				isFull = true;
@@ -127,16 +119,12 @@ public:
 		{
 			if (privateArray[i] != 0)
 			{
-				
 				privateArray[i] = 0;
-				
-			
 				break;
 			}
 
 			else 
 				++emptyness;
-			
 		}
 
 		if (emptyness == size)
@@ -164,7 +152,6 @@ public:
 
 int main()
 {
-
 	//// TASK 1
 
 	Power orignOne;
@@ -181,6 +168,7 @@ int main()
 	//TASK 3
 
 	Stack stack;
+
 	stack.reset();
 	stack.print();
 
@@ -195,9 +183,5 @@ int main()
 	stack.pop();
 	stack.pop();
 	stack.print();
-
-	
 }
-
-
 
