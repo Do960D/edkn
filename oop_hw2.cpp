@@ -1,55 +1,50 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 
-class Person {
+class Human {
 public:
 
-	Person(short age,short weight, uint8_t sex, std::string name) 
+	Human(std::string name, uint8_t sex, short age, short weight)
 	{
-		this->age;
-		this->weight;
-		this->sex;
-		this-> name;
+		m_name = name;
+		m_sex = sex;
+		m_age = age;
+		m_weight = weight;
 	}
 
 	void setName(std::string name) 
 	{
-		this -> name = name;
+		m_name = name;
 	}
 
 	void setWeightAge (short weight, short age) 
 	{
-		this -> weight = weight;
-		this -> age = age;
+		m_weight = weight;
+		m_age = age;
 	}
 
 private:
-	std::string name;
-	uint8_t sex;
-	short age, weight;
-
+	std::string m_name;
+	uint8_t m_sex;
+	short m_age, m_weight;
 };
 
-class Student : public Person {
+class Person : public Human {
 public:
 
-	Student(short age, short weight, uint8_t sex, std::string name)
+	Person(std::string name, uint8_t sex, short age, short weight,short studYear) 
 	{
-		this->id++;
-		this->studYear = studYear;
+	
 	}
 
 private:
 
-	short studYear, id = 0;
+	short studYear, id;
 
 };
 
-void main() 
+int main() 
 {
-	Person test;
-	test.setName("test");
-	test.setWeightAge(70, 25);
-
-
+	
+	return 0;
 }
