@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
-class Human {
+class Person {
 public:
 
-	Human(std::string name, uint8_t sex, short age, short weight)
+	Person(std::string name, char sex, short age, short weight)
 	{
 		m_name = name;
 		m_sex = sex;
@@ -25,26 +25,40 @@ public:
 
 private:
 	std::string m_name;
-	uint8_t m_sex;
+	char m_sex;
 	short m_age, m_weight;
 };
 
-class Person : public Human {
+class Student : public Person
+{
 public:
 
-	Person(std::string name, uint8_t sex, short age, short weight,short studYear) 
+	Student (std::string name, char sex, short age, short weight, short studYear) : Person( name, sex, age, weight)
 	{
-	
+
+		++count;
+	}	
+
+	void showId() 
+	{ 
+	std::cout << count << std::endl; 
 	}
 
 private:
-
-	short studYear, id;
-
+	static int count;
 };
 
 int main() 
-{
-	
+{	
+	int Student::count
+
+	Student Test1{ "Test1", 'F', 77, 19, 2021 };
+	Student Test2{ "Test2", 'M', 150, 15, 2021 };
+	Student Test3{ "Test3", 'F', 77, 19, 2021 };
+
+    Test1.showId();
+	Test2.showId();
+	Test3.showId();
+
 	return 0;
 }
